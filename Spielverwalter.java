@@ -24,3 +24,4 @@ public class Spielverwalter {
         cam.setzeBlickpunkt(0, 0, 0);
     }
 }
+
