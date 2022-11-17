@@ -50,11 +50,7 @@ x = pX;
      armLinks.setzeFarbe(0,1,0);
      super.aktualisiereLebensbalken();
     super.drehe(0, -90, 0);
-    // ohrRechts = new GLQuader(1042.5,25,-4,2,6,0.5);
-    // ohrLinks = new GLQuader(1042.5,25,4,2,6,0.5);
-   // ohrRechts.setzeFarbe(0,0,0);
-   // ohrLinks.setzeFarbe(0,0,0);
-   //  super.drehe(0,-90,0);
+
     
 }
 
