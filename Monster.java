@@ -355,6 +355,22 @@ double zukunftsb=0;
 	}
 	
 	public void sterbe() {
+        //TO DO Sterbeanimation hinzufügen
+		//Sterben muss in Spielverwaltung passieren
+		//Ka was der ganze bereich machen sollte, aber auf jeden fall wurde das monster nicht gelöscht nach dem tod...
+	/* 	zaehler=0;
+		if(zaehler<100) {
+			zaehler++;
+			beinLinks.drehe(Math.random(), Math.random(),Math.random());
+			beinRechts.drehe(Math.random(), Math.random(),Math.random());
+			armRechts.drehe(Math.random(), Math.random(),Math.random());
+			armLinks.drehe(Math.random(), Math.random(),Math.random());
+			Sys.warte(1);
+		}
+		if(zaehler>100) {
+		loesche();
+		zaehler=0;
+	 }*/
 	 loesche();
 	}
 
