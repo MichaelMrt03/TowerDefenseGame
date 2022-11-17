@@ -9,6 +9,7 @@ public class Spielverwalter {
     Ork orkArray[];
     int orkanzahl=20;
 
+    Kanone kanone;
     public Spielverwalter() {
         //GLOOP Grundlagen
         cam = new GLSchwenkkamera();
@@ -16,13 +17,13 @@ public class Spielverwalter {
         new Map();
         new GLLicht();
         spielerperspektive();
-       
+        kanone = new Kanone(0,0,-200,10);
         //Erzeugen der Orks
         orkArray = new Ork[orkanzahl];
         for(int i=0;i<orkanzahl;i++) {
             orkArray[i] = new Ork(1050+90*i,50);
         }
-
+        
         hauptschleife();
     }
 
@@ -42,4 +43,5 @@ public class Spielverwalter {
         cam.setzeBlickpunkt(0, 0, 0);
     }
 }
+
 
