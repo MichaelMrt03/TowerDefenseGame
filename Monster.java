@@ -7,7 +7,6 @@ public class Monster {
 	GLQuader koerper, beinRechts, beinLinks, armLinks, armRechts, ohrRechts, ohrLinks; 
 	GLKugel kopf,augeL,augeR;
 	GLZylinder hals;
-	GLQuader hilfsquader;
 	int rotierWinkelA;
 	int rotierWinkelB;
 	
@@ -66,10 +65,7 @@ public class Monster {
 	 if(todesbalken!=null) {
 			todesbalken.verschiebe(pV);
 		}
-		// position.addiere(pV);
-
-		// ohrRechts.verschiebe(pV);
-		// ohrLinks.verschiebe(pV);
+		
 	}
 
 	public void laufe() {
@@ -122,7 +118,7 @@ public class Monster {
 		aenderung.addiere(laufvektor);
 	}
 
-	public void drehe(double x, double y, double z) {
+	public void drehe(double x, double y, double z) { //Ork wird gedreht
 		beinLinks.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
 		beinRechts.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
 		koerper.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
@@ -131,15 +127,11 @@ public class Monster {
 		armLinks.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
         augeR.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
         augeL.drehe(x, y, z, koerper.gibX(), koerper.gibY(), koerper.gibZ());
-        
-        // ohrRechts.drehe(x,y,z,koerper.gibX(),koerper.gibY(),koerper.gibZ());
-		// ohrLinks.drehe(x,y,z,koerper.gibX(),koerper.gibY(),koerper.gibZ());
+
 	}
 
 	public void laufAnimation(String pRichtung) {
-
-		
-
+        //Richtungsüberprüfung
 		rCheck(pRichtung);
 		if(pRichtung=="links"||pRichtung=="rechts"||pRichtung=="vorne"){ //Je nachdem in welche Richtung die Laufanitmation stattfindet muss hier der rotierwinkel angepasst werden
 			rotierWinkelA =-1;
@@ -148,10 +140,8 @@ public class Monster {
 		if(pRichtung=="hinten"){ //Je nachdem in welche Richtung die Laufanitmation stattfindet muss hier der rotierwinkel angepasst werden
 			rotierWinkelA =1;
 			rotierWinkelB = -1;
-		}
-		
-		
-	if (arm_Kalibrieren <= 180) { // Einmal schwingen
+		}	
+	if (arm_Kalibrieren <= 180) { // Einmal schwingen, damit ein Arm vorne ist, da beide zu Beginn nach vorne zeigen
 			armRechts.rotiere(rotierWinkelB, rv, ovAR);
 
 			if (arm_Kalibrieren <= 90) {
@@ -159,10 +149,7 @@ public class Monster {
 				beinLinks.rotiere(rotierWinkelB, rv, ovBL);
 			}
 			arm_Kalibrieren++;
-
 		}
-		
-	
 		if (arm_Kalibrieren > 180) {
 			// Durchgehendes schwingen
 			if (d <= 180) {
@@ -174,7 +161,6 @@ public class Monster {
 			}
 			if (d == 180) {
 				vorn = true;
-
 			}
 			if (vorn) {
 				armRechts.rotiere(rotierWinkelB, rv, ovAR);
@@ -191,7 +177,7 @@ public class Monster {
 		}
 
 	}
-
+        //Für die Methode laufe
 	public void verschiebe(double pX, double pY, double pZ) {
 		beinLinks.verschiebe(pX, pY, pZ);
 		beinRechts.verschiebe(pX, pY, pZ);
@@ -199,8 +185,6 @@ public class Monster {
 		kopf.verschiebe(pX, pY, pZ);
 		armRechts.verschiebe(pX, pY, pZ);
 		armLinks.verschiebe(pX, pX, pZ);
-		// ohrRechts.verschiebe(pX,pY,pZ);
-		// ohrLinks.verschiebe(pX,pY,pZ);
 		lebensbalken.verschiebe(pX,pY,pZ);
 		if(todesbalken!=null) {
 			todesbalken.verschiebe(pX,pY,pZ);
@@ -232,13 +216,12 @@ public class Monster {
 			
 			break;
 		case "hinten":
-			//new GLQuader(g / 10 + koerper.gibX(), y - g / 4 + g / 1.25 / 2, koerper.gibZ(),1000,1,1);
+			// new GLQuader(g / 10 + koerper.gibX(), y - g / 4 + g / 1.25 / 2, koerper.gibZ(),1000,1,1); //Achse durch den Körper
 			ovBR = new GLVektor(g / 10 + koerper.gibX(), y - g / 4 + g / 1.25 / 2, koerper.gibZ());
 			ovBL = new GLVektor(-g / 10 + koerper.gibX(), y - g / 4 + g / 1.25 / 2, koerper.gibZ());
 			ovAR = new GLVektor(-g / 10 + koerper.gibX(), koerper.gibY() + g / 5, g / 100 + koerper.gibZ());
 			ovAL = new GLVektor(g / 10 + koerper.gibX(), koerper.gibY() + g / 5, g / 100 + koerper.gibZ());
 			rv = new GLVektor(1, 0, 0);
-			//OVAR Q
 			//new GLQuader(-g / 10 + koerper.gibX(), koerper.gibY() + g / 5, g / 100 + koerper.gibZ(),1,200,1);
 			
 			break;
@@ -372,21 +355,6 @@ double zukunftsb=0;
 	}
 	
 	public void sterbe() {
-		//Sterben muss in Spielverwaltung passieren
-		//Ka was der ganze bereich machen sollte, aber auf jeden fall wurde das monster nicht gelöscht nach dem tod...
-	/* 	zaehler=0;
-		if(zaehler<100) {
-			zaehler++;
-			beinLinks.drehe(Math.random(), Math.random(),Math.random());
-			beinRechts.drehe(Math.random(), Math.random(),Math.random());
-			armRechts.drehe(Math.random(), Math.random(),Math.random());
-			armLinks.drehe(Math.random(), Math.random(),Math.random());
-			Sys.warte(1);
-		}
-		if(zaehler>100) {
-		loesche();
-		zaehler=0;
-	 }*/
 	 loesche();
 	}
 
