@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\lib\\GLOOP\\GLOOP.jar",
+        "c:\\lib\\GLOOP\\gluegen-rt.jar",
+        "c:\\lib\\GLOOP\\gluegen-rt-natives-windows-amd64.jar",
+        "c:\\lib\\GLOOP\\gluegen-rt-natives-windows-i586.jar",
+        "c:\\lib\\GLOOP\\jogl-all.jar",
+        "c:\\lib\\GLOOP\\jogl-all-natives-windows-amd64.jar",
+        "c:\\lib\\GLOOP\\jogl-all-natives-windows-i586.jar"
+    ]
+}
