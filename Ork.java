@@ -1,19 +1,11 @@
 import GLOOP.*;
-/**
- * Beschreiben Sie hier die Klasse Ork.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
+
 public class Ork extends Monster
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-   //GLQuader koerper, beinRechts, beinLinks, armLinks, armRechts, kopf, ohrRechts, ohrLinks;
-
 
 public Ork(int pX,int pGroesse)
 { super(pX,pGroesse);
-x = pX;
+    x = pX;
 	g= pGroesse;
 	y= g/1.55;
 	lebenspunkte = 50;
@@ -50,7 +42,6 @@ x = pX;
      armLinks.setzeFarbe(0,1,0);
      super.aktualisiereLebensbalken();
     super.drehe(0, -90, 0);
-
     
 }
 
