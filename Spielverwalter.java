@@ -1,22 +1,26 @@
 import GLOOP.*;
+
 public class Spielverwalter {
 
     static GLKamera cam;
     GLLicht licht;
+    GLTastatur tas;
     Map map;
+    Ork orkArray[];
+    int orkanzahl=20;
+
     static Kanone kanone;
-    public Spielverwalter(){
-         cam = new GLSchwenkkamera();
+    public Spielverwalter() {
+        //GLOOP Grundlagen
+        cam = new GLSchwenkkamera();
+        tas = new GLTastatur();
         new Map();
         new GLLicht();
        spielerperspektive();
-      // kanone = new Gebaeude(0,0,-200,10);
-      kanone = new Kanone(0,0,-200,10);
-  
     }
 
     public static void spielerperspektive() {
-        cam.verschiebe(0,1200,-300);
-        cam.setzeBlickpunkt(0,0,0);    
+        cam.verschiebe(0, 1200, -300);
+        cam.setzeBlickpunkt(0, 0, 0);
     }
 }
